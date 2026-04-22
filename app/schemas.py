@@ -20,11 +20,10 @@ class Appointment(BaseModel):
     client: Client
     master: User
     service: str
-    datetime: date
     price: float
     is_paid: bool
     status: str
-    created_at: datetime
+    #created_at: datetime
 
 
     class Config:
