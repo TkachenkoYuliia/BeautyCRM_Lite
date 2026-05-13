@@ -1,4 +1,10 @@
 from pydantic import BaseModel
+from datetime import datetime
+
+# class User(BaseModel):
+#     username: str
+#     email: str
+#     password: str
 
 class User(BaseModel):
     id: int
@@ -6,7 +12,10 @@ class User(BaseModel):
     service: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+class Services(BaseModel):
+    service: str
 
 class Client(BaseModel):
     id: int
@@ -14,7 +23,7 @@ class Client(BaseModel):
     phone: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class Appointment(BaseModel):
     client: Client
@@ -23,8 +32,7 @@ class Appointment(BaseModel):
     price: float
     is_paid: bool
     status: str
-    #created_at: datetime
-
+    created_at: datetime.datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True

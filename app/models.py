@@ -1,7 +1,22 @@
 from sqlalchemy import Column, Integer, Boolean, DateTime, Float, String, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import Mapped, mapped_column
 from database import Base
 from enum import Enum
+
+
+# from typing import Annotated
+#
+# from fastapi import Depends, FastAPI, HTTPException, Query
+# from sqlmodel import Field, Session, SQLModel, create_engine, select
+#
+#
+# class Hero(SQLModel, table=True):
+#     id: int | None = Field(default=None, primary_key=True)
+#     name: str = Field(index=True)
+#     age: int | None = Field(default=None, index=True)
+#     secret_name: str
+#
+# # Code below omitted 👇
 
 class User(Base):
     __tablename__ = 'users'
@@ -17,7 +32,7 @@ class Client(Base):
     phone = Column(String, unique=True, index=True)
     user_id = Column(Integer, ForeignKey('users.id'))
 
-    author = relationship(User)
+    author = Mapped(User)
 
 class Service(str, Enum):
     __tablename__ = 'services'

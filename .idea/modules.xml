@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BeautyCRM_Lite.iml" filepath="$PROJECT_DIR$/.idea/BeautyCRM_Lite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/beauty_crm.iml" filepath="$PROJECT_DIR$/.idea/beauty_crm.iml" />
     </modules>
   </component>
 </project>

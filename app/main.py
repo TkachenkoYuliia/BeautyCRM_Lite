@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Path, Query, Body, Depends
 from typing import Optional, List, Dict, Annotated
 
-from schemas import User, Client, Appointment
+from schemas import User, Client, Appointment, Services
 from models import User as User_model, Client, Service
 import datetime
 
@@ -9,11 +9,11 @@ app = FastAPI()
 
 
 @app.post("/users/")
-async def create_user(user: User):
+async def create_user(user: User) -> User_model.User:
     return {"Master is ": user.username}
 
 @app.get("/services/")
-async def get_service(services: Service):
+async def get_service(services: Services):
     if services is Service.brows:
         return {"The service: ": services, "do": "Marina"}
 
